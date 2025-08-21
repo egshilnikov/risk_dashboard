@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+asyncpg
+pymongo
+redis
+celery
+streamlit
+python-dotenv

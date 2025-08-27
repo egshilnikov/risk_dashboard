@@ -1,4 +1,4 @@
-# app/db/database.py
+# src/db/database.py
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession # pyright: ignore[reportMissingImports]
 from sqlalchemy.orm import sessionmaker # pyright: ignore[reportMissingImports]
 import os

@@ -1,4 +1,4 @@
-# app/main.py
+# src/main.py
 from fastapi import FastAPI # pyright: ignore[reportMissingImports]
 from api.routes import router
 

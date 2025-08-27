@@ -1,4 +1,4 @@
-# app/db/mongo.py
+# src/db/mongo.py
 from pymongo import MongoClient # pyright: ignore[reportMissingImports]
 import os
 

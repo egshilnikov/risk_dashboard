@@ -1,4 +1,4 @@
-# app/models/portfolio.py
+# src/models/portfolio.py
 from pydantic import BaseModel # pyright: ignore[reportMissingImports]
 from typing import List
 

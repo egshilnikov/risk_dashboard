@@ -1,6 +1,6 @@
 # app/main.py
 from fastapi import FastAPI # pyright: ignore[reportMissingImports]
-from app.api.routes import router
+from api.routes import router
 
 app = FastAPI(
     title="Risk Dashboard API",

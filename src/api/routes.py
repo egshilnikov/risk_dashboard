@@ -1,6 +1,6 @@
 # app/api/routes.py
 from fastapi import APIRouter # pyright: ignore[reportMissingImports]
-from app.models.portfolio import PortfolioInput, PortfolioResult
+from models.portfolio import PortfolioInput, PortfolioResult # pyright: ignore[reportMissingImports]
 
 router = APIRouter()
 

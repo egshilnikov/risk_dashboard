@@ -17,3 +17,7 @@ def calculate_risk(data: PortfolioInput):
         var_99=1600.00,
         stress_loss=2000.00
     )
+
+@router.get("/")
+def read_root():
+    return {"message": "Welcome to the Risk Dashboard API"}

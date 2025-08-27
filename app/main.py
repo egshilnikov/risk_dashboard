@@ -8,9 +8,3 @@ app = FastAPI(
     version="0.1.0"
 )
 app.include_router(router)
-
-"""
-@app.get("/")
-def read_root():
-    return {"message": "Hello from FastAPI in Docker!"}
-"""

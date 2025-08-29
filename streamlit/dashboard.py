@@ -1,5 +1,5 @@
 import streamlit as st
-import requests
+import requests # pyright: ignore[reportMissingModuleSource]
 
 API_URL = "http://api:8000"  # internal Docker name
 
@@ -22,7 +22,8 @@ if st.button("Calculate Risk"):
             st.metric("VaR 95%", f"${data['var_95']:.2f}")
             st.metric("VaR 99%", f"${data['var_99']:.2f}")
             st.metric("Stress Loss", f"${data['stress_loss']:.2f}")
+            st.download_button("Download CSV", data=response.text, file_name="risk.csv", mime="text/csv")
         else:
             st.error("API Error: " + response.text)
     except Exception as e:
-        st.error(f"⚠️ Invalid input: {e}") 
+        st.error(f"⚠️ Invalid input: {e}")

@@ -26,16 +26,16 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   mongo:
-    image: mongo:6
+    image: mongo:6.0
     container_name: mongo_db
     restart: always
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - mongodata:/data/db
 
   redis:
     image: redis:7
@@ -71,5 +71,5 @@ services:
       - api      
     
 volumes:
-  postgres_data:
-  mongo_data:
+  pgdata:
+  mongodata:

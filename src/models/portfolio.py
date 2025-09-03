@@ -1,6 +1,10 @@
 # src/models/portfolio.py
 from pydantic import BaseModel # pyright: ignore[reportMissingImports]
 from typing import List
+from sqlalchemy import Column, Integer, Float, String, ForeignKey, DateTime # pyright: ignore[reportMissingImports]
+from sqlalchemy.orm import relationship # pyright: ignore[reportMissingImports]
+from db.database import Base # pyright: ignore[reportMissingImports]
+from datetime import datetime
 
 class TickerWeight(BaseModel):
     ticker: str
@@ -15,3 +19,18 @@ class PortfolioResult(BaseModel):
     var_95: float
     var_99: float
     stress_loss: float
+
+class Portfolio(Base):
+    __tablename__ = "portfolios"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    created_at = Column(DateTime, default=datetime.datetime())
+    tickers = relationship("PortfolioTicker", back_populates="portfolio")
+
+class PortfolioTicker(Base):
+    __tablename__ = "portfolio_tickers"
+    id = Column(Integer, primary_key=True, index=True)
+    portfolio_id = Column(Integer, ForeignKey("portfolios.id"))
+    ticker = Column(String)
+    weight = Column(Float)
+    portfolio = relationship("Portfolio", back_populates="tickers")

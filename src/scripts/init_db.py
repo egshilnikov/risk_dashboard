@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from db.database import Base, engine # pyright: ignore[reportMissingImports]
 from pymongo import MongoClient # pyright: ignore[reportMissingImports]
+from models import portfolio
 
 Base.metadata.create_all(bind=engine)
 

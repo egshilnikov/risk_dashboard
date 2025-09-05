@@ -1,6 +1,7 @@
 # src/main.py
 from fastapi import FastAPI # pyright: ignore[reportMissingImports]
 from api.routes import router
+# import models.portfolio  # import all model files
 
 app = FastAPI(
     title="Risk Dashboard API",

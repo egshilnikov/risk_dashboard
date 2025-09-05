@@ -1,4 +1,4 @@
-from models.database import Base, engine # pyright: ignore[reportMissingImports]
+from db.database import Base, engine # pyright: ignore[reportMissingImports]
 from pymongo import MongoClient # pyright: ignore[reportMissingImports]
 import os
 

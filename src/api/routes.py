@@ -1,4 +1,8 @@
 # src/api/routes.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from fastapi import APIRouter # pyright: ignore[reportMissingImports]
 from fastapi.responses import Response # pyright: ignore[reportMissingImports]
 from models.portfolio import PortfolioInput, PortfolioResult # pyright: ignore[reportMissingImports]

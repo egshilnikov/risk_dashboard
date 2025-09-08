@@ -43,6 +43,6 @@ def run_risk(portfolio_id: int):
     return {"task_id": result.id}
 
 @router.get("/risk_result/{task_id}")
-def run_risk(task_id: int):
+def run_risk(task_id: str):
     result = calculate_var.AsyncResult(task_id)
     return {"status": result.status, "result": result.result}

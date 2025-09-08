@@ -71,7 +71,25 @@ services:
     env_file:
       - .env
     depends_on:
-      - api      
+      - api
+
+  airflow:
+    build:
+      context: ./airflow
+    container_name: airflow
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@example.com --password admin &&
+               airflow webserver"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+    environment:
+      - ./airflow/.env
+    depends_on:
+      - postgres
     
 volumes:
   pgdata:

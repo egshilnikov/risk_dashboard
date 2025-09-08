@@ -45,11 +45,14 @@ services:
       - "6379:6379"
 
   celery:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: celery_worker
     command: celery -A tasks.worker worker --loglevel=info
+    working_dir: /app
     volumes:
-      - .:/app
+      - ./src:/app
     depends_on:
       - redis
       - api

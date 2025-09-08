@@ -52,7 +52,7 @@ services:
       - .:/app
     depends_on:
       - redis
-      - risk_api
+      - api
     env_file:
       - .env
 

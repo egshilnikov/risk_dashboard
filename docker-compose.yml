@@ -80,12 +80,12 @@ services:
     command: >
       bash -c "
         airflow db init &&
-        airflow users create
-          --username admin
-          --firstname admin
-          --lastname User
-          --role Admin
-          --email admin@example.com
+        airflow users create \
+          --username admin \
+          --firstname admin \
+          --lastname User \
+          --role Admin \
+          --email admin@example.com \
           --password admin &&
         airflow webserver"
     ports:
